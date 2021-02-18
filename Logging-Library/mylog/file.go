@@ -150,13 +150,7 @@ func (f *FileLogger) log(lv LogLevel, format string, a ...interface{}) {
 		default:
 
 		}
-		if f.checkSize(f.fileObj) {
-			newFile, err := f.splitFile(f.fileObj)
-			if err != nil {
-				return
-			}
-			f.fileObj = newFile
-		}
+
 	}
 }
 
