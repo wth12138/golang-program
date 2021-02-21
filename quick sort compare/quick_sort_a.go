@@ -61,11 +61,11 @@ func getArr(n, m int) []int {
 }
 
 func main() {
-	defer timeCost()()
-	getArr(999999, 1000000)
-	//fmt.Println(arr)
 
-	//quicksort(arr, 0, len(arr)-1)
+	arr := getArr(999999, 1000000)
+	//fmt.Println(arr)
+	defer timeCost()()
+	quicksort(arr, 0, len(arr)-1)
 	//fmt.Println(arr)
 
 }

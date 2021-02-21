@@ -51,10 +51,10 @@ func getarr(n, m int) []int {
 }
 
 func main() {
-	defer timeCost()()
-	getarr(999999, 1000000)
-	//fmt.Println(arr)
 
+	arr := getarr(999999, 1000000)
+	//fmt.Println(arr)
+	defer timeCost()()
 	//fmt.Println(quickSort(arr))
-	//quickSort(arr)
+	quickSort(arr)
 }

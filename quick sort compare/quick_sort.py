@@ -32,8 +32,8 @@ def getarr(n, m):
     return arr
 
 if __name__ == '__main__':
+	arr = getarr(99999,100000)
 	start=datetime.datetime.now()
-	arr = getarr(999999,1000000)
 	quicksort(arr,0,len(arr)-1)
 	end=datetime.datetime.now()
 	print(end-start)
