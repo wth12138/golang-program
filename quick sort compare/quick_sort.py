@@ -1,8 +1,8 @@
 import time
 import random
 import datetime
-
-
+from line_profiler import LineProfiler
+@profile
 def quicksort(array,begin,end):
 	if begin < end:
 		i = begin + 1 
@@ -33,7 +33,7 @@ def getarr(n, m):
 
 if __name__ == '__main__':
 	arr = getarr(99999,100000)
-	start=datetime.datetime.now()
+	#start=datetime.datetime.now()
 	quicksort(arr,0,len(arr)-1)
-	end=datetime.datetime.now()
-	print(end-start)
+	#end=datetime.datetime.now()
+	#print(end-start)

@@ -3,17 +3,18 @@ package main
 import (
 	"fmt"
 	"math/rand"
-	"time"
+	"os"
+	"runtime/pprof"
 )
 
 //@brief：耗时统计函数
-func timeCost() func() {
-	start := time.Now()
-	return func() {
-		tc := time.Since(start)
-		fmt.Printf("time cost = %v\n", tc)
-	}
-}
+// func timeCost() func() {
+// 	start := time.Now()
+// 	return func() {
+// 		tc := time.Since(start)
+// 		fmt.Printf("time cost = %v\n", tc)
+// 	}
+// }
 
 func quicksort(array []int, begin, end int) {
 	var i, j int
@@ -61,10 +62,15 @@ func getArr(n, m int) []int {
 }
 
 func main() {
-
-	arr := getArr(999999, 1000000)
+	file, err := os.Create("./cpu.pprof")
+	if err != nil {
+		fmt.Println(err)
+	}
+	pprof.StartCPUProfile(file)
+	defer pprof.StopCPUProfile()
+	arr := getArr(9999999, 10000000)
 	//fmt.Println(arr)
-	defer timeCost()()
+	//defer timeCost()()
 	quicksort(arr, 0, len(arr)-1)
 	//fmt.Println(arr)
 
